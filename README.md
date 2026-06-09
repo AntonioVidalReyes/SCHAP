@@ -1,6 +1,6 @@
-# SCHAP - Control de Horas Administrativas (SCHAP)
+# SCHAP - Sistema de Control de Horas Administrativas y Permisos (SCHAP)
 
-Sistema de gestión y control de horas administrativas, abonos de horas extras y solicitudes de permisos para los colaboradores de **SCHAP LTDA**. El sistema permite a los trabajadores rendir horas extras por hitos de proyectos, solicitar permisos administrativos, y a las jefaturas y administradores aprobar/rechazar dichas solicitudes bajo una estructura jerárquica con cálculo automatizado de saldos.
+Sistema de gestión y control de horas administrativas, abonos de horas extras y solicitudes de permisos. El sistema permite a los trabajadores rendir horas extras por hitos de proyectos, solicitar permisos administrativos, y a las jefaturas y administradores aprobar/rechazar dichas solicitudes bajo una estructura jerárquica con cálculo automatizado de saldos.
 
 ---
 
