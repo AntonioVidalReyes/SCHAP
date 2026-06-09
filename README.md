@@ -44,20 +44,13 @@ El despliegue con Docker levantará tres contenedores:
 ### Pasos para levantar el servicio:
 
 1. **Configurar Variables de Entorno**:
-   Crea o edita el archivo `.env` en la raíz del proyecto basándote en la configuración de la empresa:
-   ```env
-   FLASK_ENV=production
-   DB_HOST=db
-   DB_PORT=5432
-   DB_NAME=schap_db
-   DB_USER=postgres
-   DB_PASSWORD=schap_secure_password_2025
-   SECRET_KEY=schap-super-secret-jwt-key-2025
-   COMPANY_NAME=SCHAP LTDA.
-   EMAIL_ENABLED=False
-   DEFAULT_ADMIN_EMAIL=admin@sistema.local
-   DEFAULT_ADMIN_PASSWORD=admin123
+   El sistema utiliza variables de entorno para gestionar contraseñas y parámetros de configuración de forma segura. Crea el archivo `.env` en la raíz del proyecto copiando el archivo de ejemplo:
+   ```bash
+   cp .env.example .env
+   # En Windows PowerShell: Copy-Item .env.example .env
    ```
+   Luego, edita el archivo `.env` recién creado y ajusta los valores adecuados para tu entorno de despliegue (especialmente contraseñas, secretos de encriptación y datos del servidor SMTP).
+
 
 2. **Construir y Levantar Contenedores**:
    ```bash
@@ -131,7 +124,8 @@ Al registrar un hito de trabajo en terreno o viajes, el sistema aplica factores 
 ```
 /
 ├── docker-compose.yml       # Configuración de Docker Compose multi-contenedor
-├── .env                     # Variables de entorno críticas
+├── .env                     # Variables de entorno críticas (no subir a Git)
+├── .env.example             # Plantilla de variables de entorno de ejemplo
 ├── backend/                 # API REST Flask
 │   ├── app.py               # Servidor y registro de endpoints
 │   ├── db.py                # Modelado de ORM (PostgreSQL) y lógica de sincronización
