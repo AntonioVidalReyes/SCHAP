@@ -42,3 +42,18 @@ search_admin_schedule.py
 search_backend_schedule.py
 *.txt
 *.log
+
+# Diagnósticos y reportes de Antonio Vidal
+antonio_vidal_comparison_report.txt
+antonio_vidal_full_comparison_report.txt
+antonio_vidal_output.txt
+antonio_vidal_reconstruction.txt
+backend/antonio_vidal_comparison_report.txt
+backend/antonio_vidal_full_comparison_report.txt
+backend/antonio_vidal_output.txt
+backend/antonio_vidal_reconstruction.txt
+backend/check_antonio_vidal.py
+backend/compare_antonio.py
+backend/inspect_users_abonos.py
+backend/test_hours_sync.py
+
