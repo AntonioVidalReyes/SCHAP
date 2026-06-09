@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Abonos - SCHA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/layout.css?v=9">
+    <link rel="stylesheet" href="css/historial_abonos.css?v=9">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="app-header"></div>
+
+    <main class="abonos-main">
+
+        <!-- SECCIÓN HISTORIAL DE ABONOS -->
+        <section class="abonos-section">
+            <h2 class="abonos-section-title">Historial de Abonos</h2>
+
+            <div class="abonos-toolbar">
+                <div class="abonos-search">
+                    <i class="fa fa-search"></i>
+                    <input type="text" id="search-abonos" placeholder="Buscar...">
+                </div>
+                <div class="abonos-toolbar-right">
+                    <select id="filter-rol" class="abonos-select">
+                        <option value="">Todos los roles</option>
+                        <option value="administrador">Administrador</option>
+                        <option value="jefe">Jefe</option>
+                        <option value="trabajador">Trabajador</option>
+                    </select>
+                    <select id="limit-abonos" class="abonos-select">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </div>
+
+            <table class="abonos-table">
+                <thead>
+                    <tr>
+                        <th class="sortable" data-col="created_at">Fecha <i class="fa fa-sort"></i></th>
+                        <th class="sortable" data-col="name">Nombre <i class="fa fa-sort"></i></th>
+                        <th class="sortable" data-col="email">Email <i class="fa fa-sort"></i></th>
+                        <th class="sortable" data-col="role">Rol <i class="fa fa-sort"></i></th>
+                        <th class="sortable" data-col="horas_antes">Horas Actuales <i class="fa fa-sort"></i></th>
+                        <th class="sortable" data-col="horas_abono">Horas Abono <i class="fa fa-sort"></i></th>
+                        <th class="sortable" data-col="horas_total">Horas Totales <i class="fa fa-sort"></i></th>
+                        <th>Motivo</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-abonos">
+                    <!-- Filas dinámicas -->
+                </tbody>
+            </table>
+
+            <div class="abonos-footer">
+                <div class="abonos-pagination" id="pagination-abonos">
+                    <!-- Paginación dinámica -->
+                </div>
+                <div class="abonos-info" id="info-abonos">
+                    Mostrando 0 al 0 de 0 resultados
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <span id="footer-user">Usuario: -</span>
+        <span class="muted">© SCHA SCHA</span>
+    </footer>
+
+    <script src="js/api.js?v=9"></script>
+  <script src="js/layout.js?v=9"></script>
+    <script src="js/historial_abonos.js?v=9"></script>
+
+</body>
+
+</html>

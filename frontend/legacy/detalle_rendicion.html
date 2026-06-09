@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Rendición - SCHA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/layout.css?v=9">
+    <link rel="stylesheet" href="css/detalle_rendicion.css?v=9">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="app-header"></div>
+
+    <main class="rend-container">
+
+        <!-- ENCABEZADO -->
+        <section class="rend-card">
+            <div class="rend-card__header" id="rend-header">
+                Solicitud #<span id="rend-number">-</span> - <span id="rend-user-name">-</span>
+            </div>
+
+            <table class="rend-table rend-table--info">
+                <tr>
+                    <th>Cliente</th>
+                    <th>Guía de servicio</th>
+                    <th>Trabajo</th>
+                </tr>
+                <tr>
+                    <td id="rend-cliente">-</td>
+                    <td id="rend-guia">-</td>
+                    <td id="rend-trabajo">-</td>
+                </tr>
+                <tr>
+                    <th>Proyecto</th>
+                    <th colspan="2">Observaciones</th>
+                </tr>
+                <tr>
+                    <td id="rend-proyecto">-</td>
+                    <td colspan="2" id="rend-obs">-</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- HITOS -->
+        <section class="rend-card">
+            <div class="rend-card__subtitle">Hitos</div>
+            <table class="rend-table">
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Desde</th>
+                        <th>Hasta</th>
+                        <th>Tipo</th>
+                        <th>Extras</th>
+                    </tr>
+                </thead>
+                <tbody id="rend-hitos-body">
+                    <!-- Filas dinámicas -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- TIEMPOS -->
+        <section class="rend-card">
+            <div class="rend-card__subtitle">Tiempos</div>
+            <table class="rend-table rend-table--tiempos">
+                <thead>
+                    <tr>
+                        <th>Horas Permiso Ganadas</th>
+                        <th>Reales</th>
+                        <th>Ganado</th>
+                        <th>Ajustadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alojamiento</td>
+                        <td id="tiempo-aloj-real">0</td>
+                        <td>4.5 Horas</td>
+                        <td id="tiempo-aloj-ajus">0</td>
+                    </tr>
+                    <tr>
+                        <td>Feriado / Domingo</td>
+                        <td id="tiempo-feriado-real">0</td>
+                        <td>150%</td>
+                        <td id="tiempo-feriado-ajus">0</td>
+                    </tr>
+                    <tr>
+                        <td>Horas extras semana</td>
+                        <td id="tiempo-extra-semana-real">0</td>
+                        <td>100%</td>
+                        <td id="tiempo-extra-semana-ajus">0</td>
+                    </tr>
+                    <tr>
+                        <td>Viaje</td>
+                        <td id="tiempo-viaje-real">0</td>
+                        <td>50%</td>
+                        <td id="tiempo-viaje-ajus">0</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>TOTAL</th>
+                        <td></td>
+                        <td></td>
+                        <td id="tiempo-total-ajus">0 Horas</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- PROGRESO -->
+        <section class="rend-card">
+            <div class="rend-card__subtitle">Progreso</div>
+
+            <div class="rend-progress-bar" id="rend-progress-bar">
+                <!-- Barra de progreso dinámica -->
+            </div>
+
+            <ul class="rend-timeline" id="rend-timeline">
+                <!-- Historial de acciones -->
+            </ul>
+        </section>
+
+        <!-- ESTADO -->
+        <section class="rend-card">
+            <div class="rend-card__subtitle">Estado</div>
+            <table class="rend-table rend-table--estado">
+                <tr>
+                    <th>Estado</th>
+                    <th>Razón</th>
+                </tr>
+                <tr>
+                    <td id="rend-estado">-</td>
+                    <td id="rend-razon">-</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- BOTONES DE ACCIÓN (solo para jefe/admin) -->
+        <section class="rend-actions" id="rend-actions" style="display:none;">
+            <button class="btn-aprobar" id="btn-aprobar">
+                <i class="fa fa-check"></i> Aprobar
+            </button>
+            <button class="btn-rechazar" id="btn-rechazar">
+                <i class="fa fa-times"></i> Rechazar
+            </button>
+        </section>
+
+    </main>
+
+    <!-- POPUP APROBAR -->
+    <div class="popup-overlay" id="popup-aprobar">
+        <div class="popup-modal">
+            <div class="popup-header">
+                <h3>Confirmar Aprobación</h3>
+                <button class="popup-close" onclick="cerrarPopupAprobar()">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p>¿Está seguro que desea aprobar esta rendición?</p>
+                <p class="popup-info">
+                    Se sumarán <strong id="popup-horas">0</strong> horas al saldo del trabajador.
+                </p>
+            </div>
+            <div class="popup-footer">
+                <button class="btn-cancelar" onclick="cerrarPopupAprobar()">Cancelar</button>
+                <button class="btn-confirmar" onclick="confirmarAprobacion()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP RECHAZAR -->
+    <div class="popup-overlay" id="popup-rechazar">
+        <div class="popup-modal">
+            <div class="popup-header">
+                <h3>Rechazar Rendición</h3>
+                <button class="popup-close" onclick="cerrarPopupRechazar()">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p>Indique la razón del rechazo:</p>
+                <textarea id="razon-rechazo" placeholder="Escriba aquí la razón del rechazo..." rows="4"></textarea>
+            </div>
+            <div class="popup-footer">
+                <button class="btn-cancelar" onclick="cerrarPopupRechazar()">Cancelar</button>
+                <button class="btn-confirmar-rechazar" onclick="confirmarRechazo()">Confirmar Rechazo</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <span id="footer-user">Usuario: -</span>
+        <span class="muted">© SCHA SCHA</span>
+    </footer>
+
+    <script src="js/api.js?v=9"></script>
+  <script src="js/layout.js?v=9"></script>
+    <script src="js/detalle_rendicion.js?v=9"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,801 @@
+:root {
+  /* Light Theme variables */
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --primary: #1e293b;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --text-muted: #475569;
+  --header-bg: #0f172a;
+  --header-color: #f8fafc;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+  --success: #16a34a;
+  --success-hover: #15803d;
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --input-text: #0f172a;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --radius: 12px;
+}
+
+body.dark-theme, html.dark-theme {
+  /* Dark Theme variables */
+  --bg: #0b0f19;
+  --text: #f8fafc;
+  --primary: #111827;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --card-bg: #1e293b;
+  --card-border: #2d3748;
+  --text-muted: #94a3b8;
+  --header-bg: #0b0f19;
+  --header-color: #f8fafc;
+  --danger: #f87171;
+  --danger-hover: #ef4444;
+  --success: #34d399;
+  --success-hover: #10b981;
+  --input-bg: #0b0f19;
+  --input-border: #475569;
+  --input-text: #f8fafc;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+}
+
+/* Reset global de tipografía para consistencia absoluta en todas las páginas */
+body, button, input, select, textarea, optgroup {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Contenedor principal de página unificado */
+.page-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Headings y elementos destacados con Outfit para un estilo vanguardista y sobrio */
+h1, h2, h3, h4, h5, h6, 
+.brand, 
+.kpi-value, 
+.sol-title, 
+.req-title, 
+.detail-title, 
+.confirm-modal__title,
+.setup-step-content h4 {
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+/* Consola Monoespaciada y campos JSON */
+pre, code, .code-editor, textarea[font-family="monospace"], .mono-text {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace !important;
+  font-size: 0.85rem;
+}
+
+/* Transiciones globales para un efecto premium al cambiar de tema o estados de interacción */
+.login-box,
+.kpi-card,
+.dash-section,
+.setup-modal,
+.panel-container,
+.admin-section,
+.detail-card,
+.form-container,
+.sol-card,
+.sol-section,
+.sol-legend,
+.pend-section,
+.pend-legend,
+.rev-section,
+.rev-legend,
+.abonos-section,
+.rep-section,
+.rend-card,
+.req-card,
+.calendar-shell,
+.event-modal,
+.card,
+.main-header,
+footer,
+input,
+select,
+textarea,
+button,
+td,
+th {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+/* Estilos comunes para inputs en ambos temas */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="time"],
+input[type="date"],
+select,
+textarea {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
+  font-family: inherit;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="time"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* HEADER COMÚN */
+.main-header {
+  background: var(--header-bg);
+  color: var(--header-color);
+  padding: 8px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo {
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.top-menu {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.top-menu button {
+  background: transparent;
+  border: none;
+  color: var(--header-color);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.top-menu button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.top-menu button.active {
+  background: rgba(255, 255, 255, 0.20);
+  font-weight: 600;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.top-menu .danger {
+  color: #ff8a80;
+}
+
+.top-menu .danger:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fff;
+}
+
+/* Botón de tema */
+.theme-btn {
+  background: transparent;
+  border: none;
+  color: var(--header-color) !important;
+  font-size: 1.1rem !important;
+  padding: 8px !important;
+  border-radius: 50% !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* Badges de rol */
+.role-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.role-administrador { background: #fee2e2; color: #dc2626; }
+.role-jefe          { background: #d1fae5; color: #059669; }
+.role-trabajador    { background: #e0f2fe; color: #0284c7; }
+
+/* En modo oscuro, suavizar los colores de los roles */
+.dark-theme .role-administrador { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.dark-theme .role-jefe          { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+.dark-theme .role-trabajador    { background: rgba(56, 189, 248, 0.2); color: #7dd3fc; }
+
+.hidden { display: none !important; }
+
+/* Móvil */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .top-menu {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   GLOBAL VIEW STYLING OVERRIDES FOR DARK THEME (Centralizado en layout.css)
+   ========================================================================== */
+.dark-theme .login-box,
+.dark-theme .kpi-card,
+.dark-theme .dash-section,
+.dark-theme .setup-modal,
+.dark-theme .panel-container,
+.dark-theme .admin-section,
+.dark-theme .detail-card,
+.dark-theme .form-container,
+.dark-theme .sol-card,
+.dark-theme .sol-section,
+.dark-theme .sol-legend,
+.dark-theme .pend-section,
+.dark-theme .pend-legend,
+.dark-theme .rev-section,
+.dark-theme .rev-legend,
+.dark-theme .abonos-section,
+.dark-theme .rep-section,
+.dark-theme .rend-card,
+.dark-theme .req-card,
+.dark-theme .calendar-shell,
+.dark-theme .event-modal,
+.dark-theme .card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+  color: var(--text) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.dark-theme .section-header,
+.dark-theme .card-header,
+.dark-theme .table-header,
+.dark-theme .admin-section-header,
+.dark-theme .rep-section-header,
+.dark-theme .detail-header {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-bottom: 1px solid var(--card-border) !important;
+  color: var(--text) !important;
+}
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme .kpi-value,
+.dark-theme .req-title,
+.dark-theme .detail-title,
+.dark-theme th {
+  color: var(--text) !important;
+}
+
+.dark-theme p,
+.dark-theme label,
+.dark-theme .kpi-label,
+.dark-theme .progress-text,
+.dark-theme .req-meta,
+.dark-theme .empty,
+.dark-theme .muted,
+.dark-theme footer,
+.dark-theme .text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Estilos de Tablas y Listas */
+.dark-theme td,
+.dark-theme th,
+.dark-theme tr,
+.dark-theme li,
+.dark-theme .req-list li,
+.dark-theme .schedule-table th,
+.dark-theme .schedule-table td {
+  border-bottom-color: var(--card-border) !important;
+  border-top-color: var(--card-border) !important;
+  color: var(--text) !important;
+}
+
+.dark-theme thead th,
+.dark-theme .schedule-table thead th {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-bottom: 2px solid var(--card-border) !important;
+}
+
+.dark-theme tbody tr:hover,
+.dark-theme .schedule-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark-theme th.sortable:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Inputs, Textareas y Selects */
+.dark-theme input:not([type="checkbox"]):not([type="radio"]),
+.dark-theme select,
+.dark-theme textarea,
+.dark-theme .form-control {
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--input-border) !important;
+  color: var(--input-text) !important;
+}
+
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.6;
+}
+
+.dark-theme input:focus,
+.dark-theme select:focus,
+.dark-theme textarea:focus {
+  border-color: var(--accent) !important;
+  outline: none;
+}
+
+/* Contenedores anidados y paneles en Dark Mode */
+.dark-theme .user-form-container,
+.dark-theme .config-option,
+.dark-theme .recovery-info,
+.dark-theme .rend-card__header,
+.dark-theme .rend-card__subtitle,
+.dark-theme .req-card__title,
+.dark-theme .req-card__subtitle,
+.dark-theme .req-info-label,
+.dark-theme .setup-step,
+.dark-theme .setup-footer {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-color: var(--card-border) !important;
+  color: var(--text) !important;
+}
+
+/* Forzar color de texto #555 hardcodeado en inline HTML a color legible */
+.dark-theme p[style*="color: #555"],
+.dark-theme p[style*="color:#555"] {
+  color: var(--text-muted) !important;
+}
+
+.dark-theme .setup-step-content h4 {
+  color: var(--text) !important;
+}
+
+.dark-theme .setup-step-content p {
+  color: var(--text-muted) !important;
+}
+
+/* Overrides específicos para Tablas y celdas */
+.dark-theme th,
+.dark-theme td,
+.dark-theme thead th,
+.dark-theme .tbl-header th,
+.dark-theme .tbl-hitos thead th,
+.dark-theme .tbl-tiempos thead th,
+.dark-theme .tbl-tiempos tbody td:first-child,
+.dark-theme .sol-table th,
+.dark-theme .sol-table td,
+.dark-theme .sol-table thead th,
+.dark-theme .sol-table td:first-child,
+.dark-theme .abonos-table th,
+.dark-theme .abonos-table td,
+.dark-theme .abonos-table thead th,
+.dark-theme .not-table th,
+.dark-theme .not-table td,
+.dark-theme .not-table thead th,
+.dark-theme .perm-table th,
+.dark-theme .perm-table td,
+.dark-theme .perm-table thead th,
+.dark-theme .req-table th,
+.dark-theme .req-table td,
+.dark-theme .req-table thead th,
+.dark-theme .req-table--no-header th,
+.dark-theme .rend-table th,
+.dark-theme .rend-table td,
+.dark-theme .rend-table thead th,
+.dark-theme .rend-table--info th,
+.dark-theme .rend-table--info td,
+.dark-theme .rend-table--tiempos tbody td:first-child,
+.dark-theme .rend-table--tiempos tfoot th,
+.dark-theme .rend-table--estado th,
+.dark-theme .pend-table th,
+.dark-theme .pend-table td,
+.dark-theme .pend-table thead th,
+.dark-theme .rev-table th,
+.dark-theme .rev-table td,
+.dark-theme .rev-table thead th {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  color: var(--text) !important;
+}
+
+/* Fila de edición/eliminación destacada en modo oscuro */
+.dark-theme .not-row,
+.dark-theme .perm-row {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.dark-theme .tbl-hitos tfoot td,
+.dark-theme .tbl-tiempos tfoot th,
+.dark-theme .tbl-tiempos tfoot td,
+.dark-theme .tbl-tiempos .total-row th,
+.dark-theme .tbl-tiempos .total-row td {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border-color: var(--card-border) !important;
+  color: var(--text) !important;
+}
+
+.dark-theme input[readonly],
+.dark-theme select[readonly],
+.dark-theme textarea[readonly],
+.dark-theme .hito-row.calculada,
+.dark-theme .hito-row.calculada input,
+.dark-theme .hito-row.calculada select,
+.dark-theme .tbl-tiempos input[readonly],
+.dark-theme .tbl-tiempos .total-row .input-total {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--text) !important;
+  border-color: var(--card-border) !important;
+}
+
+.dark-theme .tbl-tiempos .input-result {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Búsqueda, paginación y leyendas en Reportes y Solicitudes en Dark Mode */
+.dark-theme .rep-search,
+.dark-theme .sol-search,
+.dark-theme .pend-search,
+.dark-theme .rev-search,
+.dark-theme .abonos-search {
+  background-color: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+}
+
+.dark-theme .rep-search input,
+.dark-theme .sol-search input,
+.dark-theme .pend-search input,
+.dark-theme .rev-search input,
+.dark-theme .abonos-search input {
+  background-color: transparent !important;
+  color: var(--text) !important;
+}
+
+.dark-theme .rep-table tbody tr.selected {
+  background-color: rgba(56, 189, 248, 0.15) !important;
+}
+
+.dark-theme .rep-pagination button,
+.dark-theme .sol-pagination button,
+.dark-theme .pend-pagination button,
+.dark-theme .rev-pagination button,
+.dark-theme .abonos-pagination button {
+  background-color: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+  color: var(--text) !important;
+}
+
+.dark-theme .rep-pagination button.active,
+.dark-theme .sol-pagination button.active,
+.dark-theme .pend-pagination button.active,
+.dark-theme .rev-pagination button.active,
+.dark-theme .abonos-pagination button.active {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #0f172a !important;
+}
+
+.dark-theme .rep-pagination button:disabled,
+.dark-theme .sol-pagination button:disabled,
+.dark-theme .pend-pagination button:disabled,
+.dark-theme .rev-pagination button:disabled,
+.dark-theme .abonos-pagination button:disabled {
+  opacity: 0.3 !important;
+}
+
+.dark-theme .rep-pagination button:hover:not(:disabled):not(.active),
+.dark-theme .sol-pagination button:hover:not(:disabled):not(.active),
+.dark-theme .pend-pagination button:hover:not(:disabled):not(.active),
+.dark-theme .rev-pagination button:hover:not(:disabled):not(.active),
+.dark-theme .abonos-pagination button:hover:not(:disabled):not(.active) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--card-border) !important;
+}
+
+.dark-theme .sol-select,
+.dark-theme .pend-select,
+.dark-theme .rev-select,
+.dark-theme .rep-select,
+.dark-theme .abonos-select {
+  background-color: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--input-text) !important;
+}
+
+.dark-theme .sol-section-title,
+.dark-theme .pend-section-title,
+.dark-theme .rev-section-title,
+.dark-theme .abonos-section-title,
+.dark-theme .rep-title,
+.dark-theme .legend-text {
+  color: var(--text) !important;
+}
+
+.dark-theme .sol-legend-item,
+.dark-theme .pend-legend-item,
+.dark-theme .rev-legend-item {
+  color: var(--text-muted) !important;
+}
+
+/* Overrides específicos para las tarjetas sol-card de Solicitar y Solicitudes */
+.dark-theme .sol-icon {
+  color: var(--accent) !important;
+}
+
+.dark-theme .sol-title {
+  color: var(--text) !important;
+}
+
+.dark-theme .sol-card:hover {
+  border-color: var(--accent) !important;
+}
+
+/* Calendario en Dark Mode (FullCalendar & Custom Toolbar) */
+.dark-theme .toolbar button {
+  background-color: var(--card-bg) !important;
+  color: var(--text) !important;
+  border-color: var(--card-border) !important;
+}
+.dark-theme .toolbar button:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+.dark-theme .toolbar .active {
+  background-color: var(--accent) !important;
+  color: #0f172a !important;
+}
+
+.dark-theme .fc,
+.dark-theme .fc td,
+.dark-theme .fc th,
+.dark-theme .fc-theme-standard td,
+.dark-theme .fc-theme-standard th,
+.dark-theme .fc-theme-standard .fc-scrollgrid {
+  border-color: var(--card-border) !important;
+  background-color: transparent !important;
+}
+
+.dark-theme .fc-daygrid-day-number,
+.dark-theme .fc-col-header-cell-cushion,
+.dark-theme .fc-timegrid-slot-label,
+.dark-theme .fc-timegrid-axis-cushion,
+.dark-theme .fc-timegrid-slot-label-cushion {
+  color: var(--text) !important;
+}
+
+.dark-theme .fc-daygrid-day.fc-day-today {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Leyenda del Calendario en Dark Mode */
+.dark-theme .calendar-legend {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--card-border) !important;
+  color: var(--text) !important;
+}
+
+.dark-theme .legend-title {
+  color: var(--text) !important;
+}
+
+.dark-theme .legend-item {
+  color: var(--text-muted) !important;
+}
+
+.dark-theme .event-modal__close {
+  color: var(--text-muted) !important;
+}
+
+.dark-theme .event-modal__close:hover {
+  color: var(--text) !important;
+}
+
+/* Modales de Confirmación en Dark Mode */
+.dark-theme .confirm-modal {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  color: var(--text) !important;
+}
+.dark-theme .confirm-modal__title {
+  color: var(--text) !important;
+}
+.dark-theme .confirm-modal__message {
+  color: var(--text-muted) !important;
+}
+
+/* Otros Componentes Especiales */
+.dark-theme .default-credentials,
+.dark-theme .setup-warning {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border: 1px dashed var(--card-border) !important;
+  color: var(--text) !important;
+}
+
+.dark-theme .setup-warning {
+  border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+.dark-theme .setup-warning i,
+.dark-theme .setup-warning p {
+  color: #fcd34d !important;
+}
+
+.dark-theme .setup-step {
+  border-left-color: var(--accent) !important;
+}
+
+.dark-theme .progress-container {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .day-off {
+  color: var(--text-muted) !important;
+  opacity: 0.5;
+}
+
+.dark-theme .badge.off {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--text-muted) !important;
+}
+
+/* Sombras y bordes en Dark Mode */
+.dark-theme hr {
+  border-color: var(--card-border) !important;
+}
+
+/* ==========================================================================
+   FOOTER GLOBAL REIMAGINADO Y FIJO (ESTILO CABECERA)
+   ========================================================================== */
+body {
+  padding-bottom: 70px !important;
+}
+
+footer {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 10px 24px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  z-index: 1000 !important;
+  background: var(--header-bg) !important;
+  color: var(--header-color) !important;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15) !important;
+  border-top: 1px solid var(--card-border) !important;
+  box-sizing: border-box !important;
+  font-size: 0.88rem !important;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+footer .footer-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+footer .footer-divider {
+  color: var(--text-muted) !important;
+  opacity: 0.4 !important;
+}
+
+footer .footer-brand-text {
+  font-size: 0.8rem !important;
+  color: var(--text-muted) !important;
+  font-weight: 500 !important;
+}
+
+footer .footer-center {
+  display: flex !important;
+  align-items: center !important;
+  font-weight: 500 !important;
+  color: var(--header-color) !important;
+  opacity: 0.9 !important;
+  letter-spacing: 0.03em !important;
+}
+
+footer .footer-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+#footer-user {
+  font-weight: 500 !important;
+  color: var(--header-color) !important;
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 12px !important;
+    text-align: center !important;
+  }
+  footer .footer-left, footer .footer-center, footer .footer-right {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  body {
+    padding-bottom: 95px !important;
+  }
+}

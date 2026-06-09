@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Abono - SCHA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/layout.css?v=9">
+    <link rel="stylesheet" href="css/detalle_solicitud.css?v=9">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="app-header"></div>
+
+    <div class="req-container">
+
+        <!-- ENCABEZADO -->
+        <div class="req-card">
+            <div class="req-card__title">
+                Abono #<span id="abono-id">-</span> - <span id="abono-user">-</span>
+            </div>
+        </div>
+
+        <!-- INFORMACIÓN DEL ABONO -->
+        <div class="req-card">
+            <div class="req-card__subtitle">Información del Abono</div>
+            <table class="req-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Horas Abonadas</th>
+                        <th>Comentario</th>
+                    </tr>
+                </thead>
+                <tbody id="abono-info-body">
+                    <tr>
+                        <td id="abono-fecha">-</td>
+                        <td id="abono-horas">-</td>
+                        <td id="abono-comentario">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- PROGRESO -->
+        <div class="req-card">
+            <div class="req-card__subtitle">Progreso</div>
+            <div class="req-progress-bar">
+                <div class="req-progress-step req-progress-step--notificacion" style="flex: 1 1 100%;">
+                    Finalizada
+                </div>
+            </div>
+            <ul class="req-timeline">
+                <li><span id="abono-creado">-</span> - Creada por <span id="abono-creador">-</span></li>
+                <li>Estado actual: Informativa (Abono)</li>
+            </ul>
+        </div>
+
+        <!-- USUARIO -->
+        <div class="req-card">
+            <div class="req-card__subtitle">Usuario</div>
+            <div class="req-info-list">
+                <div class="req-info-row">
+                    <div class="req-info-label">Nombre:</div>
+                    <div class="req-info-value" id="user-nombre">-</div>
+                </div>
+                <div class="req-info-row">
+                    <div class="req-info-label">Correo Electrónico:</div>
+                    <div class="req-info-value" id="user-email">-</div>
+                </div>
+                <div class="req-info-row">
+                    <div class="req-info-label">Saldo:</div>
+                    <div class="req-info-value" id="user-saldo">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESTADO -->
+        <div class="req-card">
+            <div class="req-card__subtitle">Estado</div>
+            <div class="req-info-list">
+                <div class="req-info-row">
+                    <div class="req-info-label">Estado:</div>
+                    <div class="req-info-value">Informativa (Abono)</div>
+                </div>
+                <div class="req-info-row">
+                    <div class="req-info-label">Razón:</div>
+                    <div class="req-info-value">-</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <span id="footer-user">Usuario: -</span>
+        <span class="muted">© SCHA SCHA</span>
+    </footer>
+
+    <script src="js/api.js?v=9"></script>
+  <script src="js/layout.js?v=9"></script>
+    <script src="js/detalle_abono.js?v=9"></script>
+
+</body>
+
+</html>

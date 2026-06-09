@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Administración - SCHA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/layout.css?v=9">
+  <link rel="stylesheet" href="css/admin.css?v=9">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <div id="app-header"></div>
+
+  <main class="admin-main">
+
+    <!-- PESTAÑAS ADMIN -->
+    <div class="admin-tabs">
+      <button class="tab-btn active" data-tab="tab-usuarios">
+        <i class="fa fa-users"></i> Usuarios
+      </button>
+      <button class="tab-btn" data-tab="tab-horas-factores">
+        <i class="fa fa-clock"></i> Horas y Factores
+      </button>
+      <button class="tab-btn" data-tab="tab-sistema">
+        <i class="fa fa-cog"></i> Sistema
+      </button>
+    </div>
+
+    <!-- PESTAÑA 1: GESTIÓN DE USUARIOS -->
+    <div class="tab-content active" id="tab-usuarios">
+      <section class="admin-section">
+        <div class="admin-section-header">
+          <h2>Gestión de Usuarios</h2>
+          <div class="admin-section-header__actions">
+            <button class="btn btn-secondary" onclick="window.location.href='historial_abonos.html'">
+              <i class="fa fa-history"></i> Historial Abonos
+            </button>
+            <button class="btn btn-primary" id="btn-add-user">
+              <i class="fa fa-plus"></i> Nuevo Usuario
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-section-body">
+          <!-- TABLA DE USUARIOS -->
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Horas Iniciales</th>
+                <th>Activo</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="users-body">
+              <!-- Filas dinámicas -->
+            </tbody>
+          </table>
+
+          <!-- FORMULARIO UNIFICADO: Nuevo / Editar / Abonar -->
+          <div class="user-form-container">
+            <h3 id="user-form-title">Nuevo usuario</h3>
+            <form id="user-form">
+              <input type="hidden" id="user-id">
+              <input type="hidden" id="form-mode" value="new">
+
+              <!-- CAMPOS MODO USUARIO (Nuevo/Editar) -->
+              <div id="user-fields">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="user-name">Nombre</label>
+                    <input type="text" id="user-name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-bonus">Horas Iniciales</label>
+                    <input type="number" id="user-bonus" value="0" step="0.5">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="user-role">Rol</label>
+                    <select id="user-role">
+                      <option value="trabajador">Trabajador</option>
+                      <option value="jefe">Jefe</option>
+                      <option value="administrador">Administrador</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-boss">Jefe asignado</label>
+                    <select id="user-boss">
+                      <option value="">Sin jefe asignado</option>
+                    </select>
+                  </div>
+                  <div class="form-group" id="password-field">
+                    <label for="user-password">Contraseña</label>
+                    <input type="password" id="user-password">
+                  </div>
+                </div>
+              </div>
+
+              <!-- CAMPOS MODO ABONAR -->
+              <div id="abonar-fields" style="display: none;">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="abonar-name">Nombre</label>
+                    <input type="text" id="abonar-name" readonly class="input-readonly">
+                  </div>
+                  <div class="form-group">
+                    <label for="abonar-email">Email</label>
+                    <input type="email" id="abonar-email" readonly class="input-readonly">
+                  </div>
+                  <div class="form-group">
+                    <label for="abonar-current">Horas Actuales</label>
+                    <input type="text" id="abonar-current" readonly class="input-readonly input-highlight">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="abonar-type">Tipo de Ajuste</label>
+                    <select id="abonar-type">
+                      <option value="Abono">Abono Estándar (Ajuste)</option>
+                      <option value="Regalo">Regalo (Cumpleaños/Mérito)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="abonar-hours">Horas a Abonar *</label>
+                    <input type="number" id="abonar-hours" step="0.5" min="0.5" placeholder="Ej: 8">
+                  </div>
+                  <div class="form-group form-group--wide">
+                    <label for="abonar-comment">Concepto / Motivo</label>
+                    <input type="text" id="abonar-comment" placeholder="Ej: Regalo por cumpleaños, ajuste manual, etc.">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="btn-submit">Guardar</button>
+                <button type="button" class="btn btn-secondary" id="user-form-cancel">Cancelar</button>
+              </div>
+
+              <div id="user-form-msg" class="msg"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PESTAÑA 2: HORAS Y FACTORES -->
+    <div class="tab-content" id="tab-horas-factores">
+      <div class="admin-row">
+        <!-- HORARIOS DE TRABAJO -->
+        <section class="admin-section admin-section--half">
+          <div class="admin-section-header">
+            <h2>Horarios de Trabajo</h2>
+          </div>
+
+          <div class="admin-section-body">
+            <form id="work-schedule-form">
+              <table class="schedule-table">
+                <thead>
+                  <tr>
+                    <th>Día</th>
+                    <th>Entrada</th>
+                    <th>Salida</th>
+                    <th>Libre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Lunes</td>
+                    <td><input type="time" name="monday_start"></td>
+                    <td><input type="time" name="monday_end"></td>
+                    <td><input type="checkbox" name="monday_off"></td>
+                  </tr>
+                  <tr>
+                    <td>Martes</td>
+                    <td><input type="time" name="tuesday_start"></td>
+                    <td><input type="time" name="tuesday_end"></td>
+                    <td><input type="checkbox" name="tuesday_off"></td>
+                  </tr>
+                  <tr>
+                    <td>Miércoles</td>
+                    <td><input type="time" name="wednesday_start"></td>
+                    <td><input type="time" name="wednesday_end"></td>
+                    <td><input type="checkbox" name="wednesday_off"></td>
+                  </tr>
+                  <tr>
+                    <td>Jueves</td>
+                    <td><input type="time" name="thursday_start"></td>
+                    <td><input type="time" name="thursday_end"></td>
+                    <td><input type="checkbox" name="thursday_off"></td>
+                  </tr>
+                  <tr>
+                    <td>Viernes</td>
+                    <td><input type="time" name="friday_start"></td>
+                    <td><input type="time" name="friday_end"></td>
+                    <td><input type="checkbox" name="friday_off"></td>
+                  </tr>
+                  <tr>
+                    <td>Sábado</td>
+                    <td><input type="time" name="saturday_start"></td>
+                    <td><input type="time" name="saturday_end"></td>
+                    <td><input type="checkbox" name="saturday_off"></td>
+                  </tr>
+                  <tr>
+                    <td>Domingo</td>
+                    <td><input type="time" name="sunday_start"></td>
+                    <td><input type="time" name="sunday_end"></td>
+                    <td><input type="checkbox" name="sunday_off"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary" id="reset-schedule">Restablecer</button>
+              </div>
+
+              <div id="schedule-msg" class="msg"></div>
+            </form>
+          </div>
+        </section>
+
+        <!-- FACTORES DE RENDICIÓN -->
+        <section class="admin-section admin-section--half">
+          <div class="admin-section-header">
+            <h2>Factores de Rendición</h2>
+          </div>
+
+          <div class="admin-section-body">
+            <form id="factores-form">
+              <table class="factores-table">
+                <thead>
+                  <tr>
+                    <th>Concepto</th>
+                    <th>Valor</th>
+                    <th>Unidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><i class="fa fa-bed"></i> Alojamiento</td>
+                    <td><input type="number" id="factor-alojamiento" step="0.5" min="0" value="4.5"></td>
+                    <td>horas/día</td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-calendar-check"></i> Feriado</td>
+                    <td><input type="number" id="factor-feriado" step="10" min="0" value="200"></td>
+                    <td>%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-clock"></i> Horas Extras (L-S)</td>
+                    <td><input type="number" id="factor-extras" step="10" min="0" value="150"></td>
+                    <td>%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-car"></i> Viaje</td>
+                    <td><input type="number" id="factor-viaje" step="10" min="0" value="50"></td>
+                    <td>%</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary" id="reset-factores">Restablecer</button>
+              </div>
+
+              <div id="factores-msg" class="msg"></div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- PESTAÑA 3: SISTEMA -->
+    <div class="tab-content" id="tab-sistema">
+      <!-- REGISTRO PÚBLICO -->
+      <section class="admin-section">
+        <div class="admin-section-header">
+          <h2><i class="fa fa-user-plus"></i> Registro Público</h2>
+        </div>
+        <div class="admin-section-body">
+          <div class="config-options">
+            <div class="config-option">
+              <div class="config-option-info">
+                <h4>Habilitar Registro Público</h4>
+                <p class="config-description">
+                  Permite que cualquier persona se registre en el sistema desde la página de login.
+                  Los usuarios registrados se crean como "trabajador" y quedan activos inmediatamente.
+                  El administrador deberá asignarle jefe directo al usuario y horas extras.
+                </p>
+              </div>
+              <div class="config-option-control">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-public-registration">
+                  <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label" id="toggle-public-registration-label">Deshabilitado</span>
+              </div>
+            </div>
+            <div id="system-config-msg" class="msg"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFIGURACIÓN SMTP -->
+      <section class="admin-section">
+        <div class="admin-section-header">
+          <h2><i class="fa fa-envelope"></i> Configuración de Correo (SMTP)</h2>
+        </div>
+        <div class="admin-section-body">
+          <form id="smtp-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="smtp-host">Host SMTP</label>
+                <input type="text" id="smtp-host" placeholder="mail.ejemplo.com" required>
+              </div>
+              <div class="form-group">
+                <label for="smtp-port">Puerto SMTP</label>
+                <input type="number" id="smtp-port" placeholder="587" required>
+              </div>
+              <div class="form-group">
+                <label for="smtp-use-tls" style="display:flex; align-items:center; gap:8px; margin-top:35px; cursor:pointer;">
+                  <input type="checkbox" id="smtp-use-tls"> Usar STARTTLS (Puerto 587)
+                </label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="smtp-user">Usuario SMTP (Correo)</label>
+                <input type="email" id="smtp-user" placeholder="usuario@ejemplo.com" required>
+              </div>
+              <div class="form-group">
+                <label for="smtp-password">Contraseña SMTP</label>
+                <input type="password" id="smtp-password" placeholder="••••••••">
+              </div>
+              <div class="form-group">
+                <label for="smtp-from-email">Correo Emisor (From)</label>
+                <input type="email" id="smtp-from-email" placeholder="no-reply@ejemplo.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="smtp-enabled" style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                  <input type="checkbox" id="smtp-enabled"> Envíos de correo habilitados
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="btn-save-smtp">
+                <i class="fa fa-save"></i> Guardar SMTP
+              </button>
+              <button type="button" class="btn btn-secondary" id="btn-test-smtp">
+                <i class="fa fa-paper-plane"></i> Probar Envío
+              </button>
+            </div>
+            <div id="smtp-msg" class="msg"></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- CONFIGURACIÓN ZONA HORARIA -->
+      <section class="admin-section">
+        <div class="admin-section-header">
+          <h2><i class="fa fa-globe"></i> Configuración de Zona Horaria</h2>
+        </div>
+        <div class="admin-section-body">
+          <form id="timezone-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="system-timezone">Zona Horaria del Sistema</label>
+                <select id="system-timezone">
+                  <option value="America/Santiago">Santiago, Chile (America/Santiago)</option>
+                  <option value="UTC">Coordinated Universal Time (UTC)</option>
+                  <option value="America/Bogota">Bogotá, Colombia (America/Bogota)</option>
+                  <option value="America/Lima">Lima, Perú (America/Lima)</option>
+                  <option value="America/Argentina/Buenos_Aires">Buenos Aires, Argentina (America/Argentina/Buenos_Aires)</option>
+                  <option value="America/Mexico_City">Ciudad de México, México (America/Mexico_City)</option>
+                  <option value="America/New_York">New York, USA (America/New_York)</option>
+                  <option value="Europe/Madrid">Madrid, España (Europe/Madrid)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="btn-save-timezone">
+                <i class="fa fa-save"></i> Guardar Zona Horaria
+              </button>
+            </div>
+            <div id="timezone-msg" class="msg"></div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer>
+    <span id="footer-user">Usuario: -</span>
+    <span class="muted">© SCHA SCHA</span>
+  </footer>
+
+  <script src="js/api.js?v=9"></script>
+  <script src="js/layout.js?v=9"></script>
+  <script src="js/admin.js?v=9"></script>
+
+</body>
+
+</html>

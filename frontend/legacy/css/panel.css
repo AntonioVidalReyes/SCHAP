@@ -1,0 +1,276 @@
+/* ===== Layout principal ===== */
+
+main {
+  max-width: 1000px;
+  margin: 5px auto;
+  padding: 0 10px 16px;
+}
+
+.legend-bar {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.muted {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+/* Píldoras estado */
+.pill {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.notif {
+  background: #2980b9;
+}
+
+.pending {
+  background: #f1c40f;
+  color: #333;
+}
+
+.accepted {
+  background: #2ecc71;
+}
+
+.rejected {
+  background: #e74c3c;
+}
+
+/* ===== Calendario ===== */
+
+.calendar-shell {
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Reducir tamaño general del calendario */
+.fc {
+  font-size: 11px !important;
+}
+
+/* Encabezados días */
+.fc-col-header-cell {
+  padding: 2px 0 !important;
+  font-size: 11px !important;
+}
+
+/* Slots de tiempo */
+.fc-timegrid-slot-label {
+  font-size: 10px !important;
+  padding: 0 2px !important;
+}
+
+.fc-timegrid-slot {
+  height: 22px !important;
+}
+
+/* ===== Toolbar ===== */
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 4px;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  gap: 5px;
+}
+
+/* Botones compactos */
+.toolbar button {
+  padding: 4px 12px;
+  font-size: 11px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 26px;
+}
+
+.toolbar button:hover {
+  background: #e8e8e8;
+}
+
+.toolbar .active {
+  background: #3498db !important;
+  color: white !important;
+}
+
+/* Etiqueta del rango */
+.range-label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ===== Popup detalle de evento ===== */
+
+.event-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.event-overlay--visible {
+  display: flex;
+}
+
+.event-modal {
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  max-width: 380px;
+  width: 100%;
+  padding: 14px 16px 12px;
+  font-size: 13px;
+}
+
+.event-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.event-modal__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.event-modal__close {
+  border: none;
+  background: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+}
+
+.event-modal__close:hover {
+  color: #000;
+}
+
+.event-modal__body {
+  line-height: 1.5;
+}
+
+.event-modal__body div {
+  margin-bottom: 4px;
+}
+
+.event-modal__footer {
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Botón pequeño */
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+footer {
+  max-width: 1100px;
+  margin: 0 auto 10px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .cards-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Popup detalle de evento (panel) ===== */
+
+.event-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.event-overlay.event-overlay--visible {
+  display: flex;
+}
+
+.event-modal {
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  max-width: 380px;
+  width: 100%;
+  padding: 14px 16px 12px;
+  font-size: 13px;
+}
+
+.event-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.event-modal__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.event-modal__close {
+  border: none;
+  background: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+}
+
+.event-modal__close:hover {
+  color: #000;
+}
+
+.event-modal__body {
+  line-height: 1.5;
+}
+
+.event-modal__body div {
+  margin-bottom: 4px;
+}
+
+.event-modal__footer {
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Botón pequeño reutilizando .btn */
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 12px;
+}

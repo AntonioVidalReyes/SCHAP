@@ -1,0 +1,342 @@
+/* ========== REPORTES - ESTILOS ========== */
+
+.rep-main {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.rep-title {
+    font-size: 28px;
+    font-weight: 300;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+/* ========== SECCIONES ========== */
+
+.rep-section {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.rep-section-header {
+    padding: 12px 15px;
+    font-weight: 500;
+    color: #333;
+    background: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.rep-section-body {
+    padding: 15px;
+}
+
+/* ========== TOOLBAR ========== */
+
+.rep-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.rep-search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 10px;
+    background: #fff;
+}
+
+.rep-search i {
+    color: #888;
+    margin-right: 8px;
+}
+
+.rep-search input {
+    border: none;
+    outline: none;
+    padding: 8px 0;
+    font-size: 13px;
+    width: 180px;
+}
+
+.rep-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rep-select {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* ========== TABLA ========== */
+
+.rep-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.rep-table th,
+.rep-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.rep-table thead th {
+    background: #f8f8f8;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    white-space: nowrap;
+}
+
+.rep-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.rep-table th.sortable:hover {
+    background: #f0f0f0;
+}
+
+.rep-table th.sortable i {
+    margin-left: 5px;
+    font-size: 11px;
+    color: #aaa;
+}
+
+.rep-table th.sortable.asc i,
+.rep-table th.sortable.desc i {
+    color: #3498db;
+}
+
+.rep-table tbody tr {
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.rep-table tbody tr:hover {
+    background: #f5f5f5;
+}
+
+.rep-table tbody tr.selected {
+    background: #e3f2fd;
+}
+
+.rep-table tbody td {
+    color: #333;
+}
+
+.rep-table .no-results td {
+    text-align: center;
+    color: #888;
+    padding: 30px;
+    font-style: italic;
+    cursor: default;
+}
+
+/* Checkbox */
+.rep-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Tabla usuario seleccionado */
+.rep-table--selected {
+    margin-bottom: 20px;
+}
+
+.rep-table--selected tbody td {
+    cursor: default;
+}
+
+.rep-table--selected tbody tr:hover {
+    background: transparent;
+}
+
+/* ========== FOOTER TABLA ========== */
+
+.rep-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.rep-info {
+    font-size: 12px;
+    color: #888;
+}
+
+/* ========== PAGINACIÓN ========== */
+
+.rep-pagination {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rep-pagination button {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #555;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.rep-pagination button:hover:not(:disabled):not(.active) {
+    background: #f0f0f0;
+    border-color: #ccc;
+}
+
+.rep-pagination button.active {
+    background: #3498db;
+    border-color: #3498db;
+    color: #fff;
+}
+
+.rep-pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ========== FECHAS ========== */
+
+.rep-fechas {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.rep-fecha-group {
+    flex: 1;
+}
+
+.rep-fecha-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.rep-fecha-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.rep-fecha-group input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* ========== BOTÓN GENERAR ========== */
+
+.rep-btn-container {
+    text-align: center;
+}
+
+.btn-generar {
+    padding: 12px 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-generar:hover:not(:disabled) {
+    background: #2980b9;
+}
+
+.btn-generar:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+    .rep-main {
+        padding: 0 10px;
+    }
+
+    .rep-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .rep-search {
+        width: 100%;
+    }
+
+    .rep-search input {
+        width: 100%;
+    }
+
+    .rep-table {
+        font-size: 12px;
+    }
+
+    .rep-table th,
+    .rep-table td {
+        padding: 8px 6px;
+    }
+
+    .rep-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rep-fechas {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* ========== FOOTER PÁGINA ========== */
+
+footer {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+}
+
+.muted {
+    color: #999;
+}

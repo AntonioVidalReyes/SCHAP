@@ -1,0 +1,363 @@
+/* ========== RENDICIÓN - ESTILOS ========== */
+
+.rend-main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.card h3 {
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    color: #333;
+}
+
+/* ========== TABLA HEADER (Datos generales) ========== */
+
+.tbl-header {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tbl-header th,
+.tbl-header td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.tbl-header th {
+    background: #f5f5f5;
+    font-weight: 600;
+    font-size: 13px;
+    width: 33.33%;
+}
+
+.tbl-header input,
+.tbl-header textarea {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.tbl-header textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* ========== TABLA HITOS ========== */
+
+.tbl-hitos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.tbl-hitos th,
+.tbl-hitos td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.tbl-hitos thead th {
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+.tbl-hitos input[type="date"],
+.tbl-hitos input[type="time"] {
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.tbl-hitos select {
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    min-width: 120px;
+}
+
+.tbl-hitos tfoot td {
+    background: #fafafa;
+}
+
+/* Celda de extras */
+.extras-cell {
+    min-width: 150px;
+}
+
+.chk-label {
+    display: inline-block;
+    margin: 2px 5px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.chk-label input {
+    margin-right: 3px;
+}
+
+/* Celda de acciones */
+.actions-cell {
+    white-space: nowrap;
+}
+
+.actions-cell .btn {
+    margin: 0 2px;
+}
+
+/* Fila calculada */
+.hito-row.calculada {
+    background: #e8f5e9;
+}
+
+.hito-row.calculada input,
+.hito-row.calculada select {
+    background: #f5f5f5;
+    color: #666;
+}
+
+/* ========== TABLA TIEMPOS ========== */
+
+.tbl-tiempos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.tbl-tiempos th,
+.tbl-tiempos td {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tbl-tiempos thead th {
+    background: #f5f5f5;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.tbl-tiempos tbody td:first-child {
+    text-align: left;
+    font-weight: 500;
+    background: #fafafa;
+    width: 200px;
+}
+
+.tbl-tiempos tbody td:first-child i {
+    margin-right: 8px;
+    color: #3498db;
+    width: 16px;
+}
+
+/* Factor badge */
+.factor-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e8f4fd;
+    color: #2980b9;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tbl-tiempos input {
+    width: 70px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: right;
+    font-size: 13px;
+    background: #fff;
+}
+
+.tbl-tiempos input[readonly] {
+    background: #f9f9f9;
+    color: #333;
+}
+
+.tbl-tiempos .input-result {
+    background: #e8f5e9;
+    border-color: #c8e6c9;
+    font-weight: 500;
+    color: #2e7d32;
+}
+
+.tbl-tiempos .input-total {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.tbl-tiempos .unit {
+    font-size: 11px;
+    color: #888;
+    margin-left: 4px;
+}
+
+.tbl-tiempos tfoot th {
+    background: #e3f2fd;
+    text-align: left;
+}
+
+.tbl-tiempos tfoot td {
+    background: #e3f2fd;
+}
+
+.tbl-tiempos .total-row th,
+.tbl-tiempos .total-row td {
+    background: #e3f2fd;
+    border-top: 2px solid #90caf9;
+}
+
+.tbl-tiempos .total-row .input-total {
+    background: #bbdefb;
+}
+
+/* ========== ACCIONES ========== */
+
+.actions {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.actions .btn {
+    margin: 0 10px;
+    padding: 10px 25px;
+}
+
+/* ========== MENSAJE ========== */
+
+.rend-msg {
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.rend-msg.ok {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.rend-msg.err {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* ========== BOTONES ========== */
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.btn-success {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: #1e7e34;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #bd2130;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+    .rend-main {
+        padding: 0 10px;
+    }
+
+    .tbl-hitos {
+        font-size: 11px;
+    }
+
+    .tbl-hitos input[type="date"],
+    .tbl-hitos input[type="time"],
+    .tbl-hitos select {
+        font-size: 11px;
+        padding: 3px 4px;
+    }
+
+    .extras-cell {
+        min-width: 100px;
+    }
+
+    .chk-label {
+        display: block;
+        margin: 3px 0;
+    }
+}
+
+/* ========== UTILIDADES ========== */
+
+.center {
+    text-align: center;
+}
+
+footer {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+}
+
+.muted {
+    color: #999;
+}

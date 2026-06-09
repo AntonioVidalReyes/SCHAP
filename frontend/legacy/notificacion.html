@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitar Notificacion - SCHA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS específico de esta página -->
+    <link rel="stylesheet" href="css/layout.css?v=9">
+    <link rel="stylesheet" href="css/notificacion.css?v=9">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div id="app-header"></div>
+
+    <main class="not-main">
+        <section class="card">
+
+            <h2>Días notificados</h2>
+
+            <table class="not-table">
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Desde</th>
+                        <th>Hasta</th>
+                        <th>Día completo</th>
+                        <th>comentarios</th>
+                        <th style="width: 40px;"></th>
+                    </tr>
+                </thead>
+                <tbody id="not-body">
+                    <!-- filas dinámicas -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" class="tfoot-center">
+                            <button id="btn-add-row" class="btn btn-success">
+                                <i class="fa fa-plus-circle"></i> Agregar fila
+                            </button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="not-actions">
+                <button id="btn-save" class="btn btn-primary">
+                    <i class="fa fa-save"></i> Guardar
+                </button>
+                <button id="btn-cancel" class="btn btn-danger">
+                    <i class="fa fa-times"></i> Cancelar
+                </button>
+            </div>
+
+            <p id="not-msg" class="not-msg"></p>
+        </section>
+    </main>
+
+    <footer>
+        <span id="footer-user">Usuario: -</span>
+        <span class="muted">© SCHA SCHA</span>
+    </footer>
+
+    <script src="js/api.js?v=9"></script>
+  <script src="js/layout.js?v=9" defer></script>
+    <script src="js/notificacion.js?v=9" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitar Rendición - SCHA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- estilos generales -->
+    <link rel="stylesheet" href="css/layout.css?v=9">
+    <link rel="stylesheet" href="css/rendicion.css?v=9">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="app-header"></div>
+
+    <main class="rend-main">
+
+        <!-- Datos generales -->
+        <section class="card">
+            <table class="tbl-header">
+                <tr>
+                    <th>Cliente</th>
+                    <th>Guía de servicio</th>
+                    <th>Trabajo</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="cli" placeholder="Cliente"></td>
+                    <td><input type="text" id="guia" placeholder="Guía de servicio"></td>
+                    <td><input type="text" id="trabajo" placeholder="Trabajo"></td>
+                </tr>
+                <tr>
+                    <th>Proyecto</th>
+                    <th colspan="2">Observaciones</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="proyecto" placeholder="Proyecto"></td>
+                    <td colspan="2">
+                        <textarea id="obs" placeholder="Observaciones..."></textarea>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Hitos -->
+        <section class="card">
+            <h3>Hitos</h3>
+
+            <table class="tbl-hitos">
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Desde</th>
+                        <th>Hasta</th>
+                        <th>Tipo</th>
+                        <th>Extras</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="hitos-body">
+                    <!-- filas dinámicas -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" class="center">
+                            <button id="btn-add-hito" class="btn btn-success">
+                                <i class="fa fa-plus-circle"></i> Agregar fila
+                            </button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- Tiempos -->
+        <section class="card">
+            <h3>Resumen de Tiempos</h3>
+
+            <table class="tbl-tiempos">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Factor</th>
+                        <th>Real</th>
+                        <th>Ajustado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="fa fa-bed"></i> Alojamiento</td>
+                        <td><span class="factor-badge" id="label-factor-aloj">4.5 hrs/día</span></td>
+                        <td>
+                            <input id="real-aloj" type="number" value="0" readonly>
+                            <span class="unit">días</span>
+                        </td>
+                        <td>
+                            <input id="ajus-aloj" type="number" value="0" readonly class="input-result">
+                            <span class="unit">hrs</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-calendar-check"></i> Feriado / Domingo</td>
+                        <td><span class="factor-badge" id="label-factor-feriado">200%</span></td>
+                        <td>
+                            <input id="real-feriado" type="number" value="0" readonly>
+                            <span class="unit">hrs</span>
+                        </td>
+                        <td>
+                            <input id="ajus-feriado" type="number" value="0" readonly class="input-result">
+                            <span class="unit">hrs</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-clock"></i> Horas Extras (L-S)</td>
+                        <td><span class="factor-badge" id="label-factor-extras">150%</span></td>
+                        <td>
+                            <input id="real-extra-finde" type="number" value="0" readonly>
+                            <span class="unit">hrs</span>
+                        </td>
+                        <td>
+                            <input id="ajus-extra-finde" type="number" value="0" readonly class="input-result">
+                            <span class="unit">hrs</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-car"></i> Viaje</td>
+                        <td><span class="factor-badge" id="label-factor-viaje">50%</span></td>
+                        <td>
+                            <input id="real-viaje" type="number" value="0" readonly>
+                            <span class="unit">hrs</span>
+                        </td>
+                        <td>
+                            <input id="ajus-viaje" type="number" value="0" readonly class="input-result">
+                            <span class="unit">hrs</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <th colspan="2">TOTAL HORAS</th>
+                        <td>
+                            <input id="real-total" type="number" value="0" readonly class="input-total">
+                            <span class="unit">hrs</span>
+                        </td>
+                        <td>
+                            <input id="ajus-total" type="number" value="0" readonly class="input-total input-result">
+                            <span class="unit">hrs</span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- botones -->
+        <section class="actions">
+            <button id="btn-save" class="btn btn-primary">
+                <i class="fa fa-save"></i> Guardar
+            </button>
+            <button id="btn-cancel" class="btn btn-danger">
+                <i class="fa fa-times"></i> Cancelar
+            </button>
+        </section>
+
+        <p id="rend-msg" class="rend-msg"></p>
+
+    </main>
+
+    <footer>
+        <span id="footer-user">Usuario: -</span>
+        <span class="muted">© SCHA SCHA</span>
+    </footer>
+
+    <script src="js/api.js?v=9"></script>
+  <script src="js/layout.js?v=9"></script>
+    <script src="js/rendicion.js?v=9"></script>
+
+</body>
+
+</html>

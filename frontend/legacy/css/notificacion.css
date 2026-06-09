@@ -1,0 +1,141 @@
+.not-main {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 10px 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 10px 12px 20px;
+    font-size: 0.9rem;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+/* Tabla */
+
+.not-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.not-table th,
+.not-table td {
+    border: 1px solid #e5e5e5;
+    padding: 6px 8px;
+    vertical-align: middle;
+}
+
+.not-table thead th {
+    background: #f7f7f7;
+    font-weight: 600;
+}
+
+/* filas de edición en rojo suave, como tu imagen */
+.not-row {
+    background: #fceaea;
+}
+
+.not-row input[type="date"],
+.not-row input[type="time"],
+.not-row textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    font-size: 0.85rem;
+}
+
+.not-row textarea {
+    resize: vertical;
+    min-height: 40px;
+}
+
+/* Botones */
+
+.btn {
+    border: none;
+    border-radius: 4px;
+    padding: 7px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-primary {
+    background: #5dade2;
+    color: #fff;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.btn-success {
+    background: #27ae60;
+    color: #fff;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+}
+
+.tfoot-center {
+    text-align: center;
+    padding: 8px;
+}
+
+.not-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Mensaje */
+
+.not-msg {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.not-msg.ok {
+    color: #27ae60;
+}
+
+.not-msg.err {
+    color: #e74c3c;
+}
+
+.muted {
+    color: #777;
+    font-size: 0.85rem;
+}
+
+footer {
+    max-width: 1100px;
+    margin: 0 auto 10px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .cards-two {
+        grid-template-columns: 1fr;
+    }
+}

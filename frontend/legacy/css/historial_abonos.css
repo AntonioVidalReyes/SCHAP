@@ -1,0 +1,299 @@
+/* ========== HISTORIAL DE ABONOS - ESTILOS ========== */
+
+.abonos-main {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* ========== SECCIONES ========== */
+
+.abonos-section {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.abonos-section-title {
+    margin: 0 0 20px 0;
+    font-size: 22px;
+    font-weight: 400;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* ========== TOOLBAR ========== */
+
+.abonos-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.abonos-search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 10px;
+    background: #fff;
+}
+
+.abonos-search i {
+    color: #888;
+    margin-right: 8px;
+}
+
+.abonos-search input {
+    border: none;
+    outline: none;
+    padding: 8px 0;
+    font-size: 13px;
+    width: 180px;
+}
+
+.abonos-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.abonos-select {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* ========== TABLA ========== */
+
+.abonos-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.abonos-table th,
+.abonos-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.abonos-table thead th {
+    background: #f8f8f8;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    white-space: nowrap;
+}
+
+.abonos-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.abonos-table th.sortable:hover {
+    background: #f0f0f0;
+}
+
+.abonos-table th.sortable i {
+    margin-left: 5px;
+    font-size: 11px;
+    color: #aaa;
+}
+
+.abonos-table th.sortable.asc i,
+.abonos-table th.sortable.desc i {
+    color: #3498db;
+}
+
+.abonos-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.abonos-table tbody td {
+    color: #333;
+}
+
+.abonos-table .no-results td {
+    text-align: center;
+    color: #888;
+    padding: 30px;
+    font-style: italic;
+}
+
+/* ========== BADGES DE ROL ========== */
+
+.rol-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.rol-administrador {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.rol-jefe {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.rol-trabajador {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+/* ========== CELDAS DE HORAS ========== */
+
+.horas-cell {
+    font-weight: 600;
+    text-align: center;
+}
+
+.horas-antes {
+    color: #666;
+}
+
+.horas-abono {
+    color: #27ae60;
+}
+
+.horas-total {
+    color: #3498db;
+}
+
+/* ========== MOTIVO ========== */
+
+.motivo-cell {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.motivo-cell:hover {
+    white-space: normal;
+    overflow: visible;
+}
+
+/* ========== FOOTER TABLA ========== */
+
+.abonos-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.abonos-info {
+    font-size: 12px;
+    color: #888;
+}
+
+/* ========== PAGINACIÓN ========== */
+
+.abonos-pagination {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.abonos-pagination button {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #555;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.abonos-pagination button:hover:not(:disabled):not(.active) {
+    background: #f0f0f0;
+    border-color: #ccc;
+}
+
+.abonos-pagination button.active {
+    background: #3498db;
+    border-color: #3498db;
+    color: #fff;
+}
+
+.abonos-pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+    .abonos-main {
+        padding: 0 10px;
+    }
+
+    .abonos-section {
+        padding: 15px;
+    }
+
+    .abonos-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .abonos-search {
+        width: 100%;
+    }
+
+    .abonos-search input {
+        width: 100%;
+    }
+
+    .abonos-table {
+        font-size: 12px;
+    }
+
+    .abonos-table th,
+    .abonos-table td {
+        padding: 8px 6px;
+    }
+
+    .abonos-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* ========== FOOTER PÁGINA ========== */
+
+footer {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+}
+
+.muted {
+    color: #999;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calendario - SCHA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS base -->
+  <link rel="stylesheet" href="css/layout.css?v=9">
+  <link rel="stylesheet" href="css/panel.css?v=9">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- FULLCALENDAR -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+</head>
+
+<body>
+
+  <div id="app-header"></div>
+
+  <main>
+
+    <!-- CALENDARIO -->
+    <div class="calendar-shell">
+
+      <!-- BARRA DE HERRAMIENTAS -->
+      <div class="toolbar">
+
+        <div class="toolbar-left">
+          <button id="btn-prev">&lt;</button>
+          <button id="btn-next">&gt;</button>
+          <button id="btn-today">Hoy</button>
+        </div>
+
+        <span id="range-label" class="range-label"></span>
+
+        <div class="toolbar-right">
+          <button id="btn-month">Mes</button>
+          <button id="btn-week" class="active">Semana</button>
+          <button id="btn-day">Día</button>
+        </div>
+
+      </div>
+
+      <div id="calendar"></div>
+
+    </div>
+  </main>
+
+  <!-- POPUP DETALLE EVENTO -->
+  <div class="event-overlay" id="event-overlay">
+    <div class="event-modal">
+      <div class="event-modal__header">
+        <h3 class="event-modal__title" id="event-title"></h3>
+        <button class="event-modal__close" id="event-close">&times;</button>
+      </div>
+
+      <div class="event-modal__body">
+        <div><strong>Fecha:</strong> <span id="event-date"></span></div>
+        <div><strong>Horas:</strong> <span id="event-hours"></span></div>
+        <div><strong>Comentario:</strong></div>
+        <div id="event-comment"></div>
+      </div>
+
+      <div class="event-modal__footer">
+        <button class="btn btn-sm btn-secondary" id="event-close-footer">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span id="footer-user">Usuario: -</span>
+    <span class="muted">© SCHA SCHA</span>
+  </footer>
+
+  <script src="js/api.js?v=9"></script>
+  <script src="js/layout.js?v=9"></script>
+  <script src="js/panel.js?v=9"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio - SCHA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/layout.css?v=9">
+  <link rel="stylesheet" href="css/inicio.css?v=9">
+  <link rel="stylesheet" href="css/setup-popup.css?v=9">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <div id="app-header"></div>
+
+  <main class="dash-main">
+
+    <!-- BIENVENIDA -->
+    <div class="dash-welcome">
+      <h1 id="welcome-title">Hola</h1>
+      <p id="welcome-sub">Resumen de tus horas y solicitudes</p>
+    </div>
+
+    <!-- KPIs -->
+    <section class="dash-kpis">
+      <div class="kpi-card kpi-total">
+        <div class="kpi-icon"><i class="fa fa-plus-circle"></i></div>
+        <div class="kpi-content">
+          <div class="kpi-value" id="kpi-total">0</div>
+          <div class="kpi-label">Horas Totales</div>
+          <div class="kpi-detail" id="kpi-total-detail">0 abonadas + 0 rendidas</div>
+        </div>
+      </div>
+
+      <div class="kpi-card kpi-usadas">
+        <div class="kpi-icon"><i class="fa fa-minus-circle"></i></div>
+        <div class="kpi-content">
+          <div class="kpi-value" id="kpi-usadas">0</div>
+          <div class="kpi-label">Horas Usadas</div>
+          <div class="kpi-detail" id="kpi-usadas-detail">0% del total</div>
+        </div>
+      </div>
+
+      <div class="kpi-card kpi-disponibles">
+        <div class="kpi-icon"><i class="fa fa-clock"></i></div>
+        <div class="kpi-content">
+          <div class="kpi-value" id="kpi-disponibles">0</div>
+          <div class="kpi-label">Horas Disponibles</div>
+          <div class="kpi-detail" id="kpi-disponibles-detail">Sin solicitudes pendientes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRA DE PROGRESO -->
+    <section class="dash-progress-section">
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="progress-text" id="progress-text">0 de 0 horas usadas</div>
+    </section>
+
+    <!-- GRÁFICO DE TENDENCIA -->
+    <section class="dash-section">
+      <div class="section-header">
+        <h2><i class="fa fa-chart-bar"></i> Tendencia Anual de Horas</h2>
+      </div>
+      <div class="section-body">
+        <canvas id="trend-chart" width="700" height="250"></canvas>
+      </div>
+    </section>
+
+    <!-- SOLICITUDES RECIENTES -->
+    <section class="dash-row">
+      <div class="dash-section dash-section--half">
+        <div class="section-header approved-header">
+          <h2><i class="fa fa-check-circle"></i> Últimas Aprobadas</h2>
+        </div>
+        <div class="section-body">
+          <ul class="req-list" id="list-aprobadas">
+            <li class="empty">Cargando...</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dash-section dash-section--half">
+        <div class="section-header rejected-header">
+          <h2><i class="fa fa-times-circle"></i> Últimas Rechazadas</h2>
+        </div>
+        <div class="section-body">
+          <ul class="req-list" id="list-rechazadas">
+            <li class="empty">Cargando...</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HORARIOS LABORALES -->
+    <section class="dash-section">
+      <div class="section-header">
+        <h2><i class="fa fa-calendar-alt"></i> Horarios Laborales</h2>
+      </div>
+      <div class="section-body" id="schedule-container">
+        <p class="empty">Cargando horarios...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span id="footer-user">Usuario: -</span>
+    <span class="muted">© SCHA SCHA</span>
+  </footer>
+
+  <!-- POPUP CONFIGURACIÓN INICIAL -->
+  <div class="setup-overlay" id="setup-overlay">
+    <div class="setup-modal">
+      <div class="setup-header">
+        <h2>🚀 Bienvenido al Sistema SCHA</h2>
+        <p>Configuración inicial requerida</p>
+      </div>
+
+      <div class="setup-body">
+        <div class="setup-step">
+          <div class="setup-step-number">1</div>
+          <div class="setup-step-content">
+            <h4>Crear usuario Administrador</h4>
+            <p>Vaya a <strong>Administración → Nuevo Usuario</strong> y cree un usuario con rol
+              <strong>Administrador</strong>. Este será el administrador permanente del sistema.</p>
+          </div>
+        </div>
+
+        <div class="setup-step">
+          <div class="setup-step-number">2</div>
+          <div class="setup-step-content">
+            <h4>Configurar Horarios de Trabajo</h4>
+            <p>En <strong>Administración → Horarios de Trabajo</strong>, defina los horarios laborales de la empresa
+              (entrada, salida y días no laborales).</p>
+          </div>
+        </div>
+
+        <div class="setup-step">
+          <div class="setup-step-number">3</div>
+          <div class="setup-step-content">
+            <h4>Configurar Factores de Rendición</h4>
+            <p>En <strong>Administración → Factores de Rendición</strong>, configure los porcentajes para alojamiento,
+              feriados, horas extras y viajes.</p>
+          </div>
+        </div>
+
+        <div class="setup-warning">
+          <i class="fa fa-exclamation-triangle"></i>
+          <p><strong>Importante:</strong> Una vez que cree el nuevo usuario administrador, este usuario temporal será
+            eliminado automáticamente. Deberá iniciar sesión con las credenciales del nuevo administrador.</p>
+        </div>
+      </div>
+
+      <div class="setup-footer">
+        <button class="btn btn-primary" onclick="closeSetupAndGoToAdmin()">
+          Ir a Administración
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP CAMBIO DE CONTRASEÑA OBLIGATORIO -->
+  <div class="setup-overlay" id="password-change-overlay">
+    <div class="setup-modal">
+      <div class="setup-header">
+        <h2>🔐 Cambio de Contraseña Requerido</h2>
+        <p>Por seguridad, debe cambiar su contraseña</p>
+      </div>
+
+      <div class="setup-body">
+        <p style="margin-bottom: 20px; color: #555;">
+          Esta es la primera vez que inicia sesión. Por favor, establezca una nueva contraseña personal.
+        </p>
+
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label for="new-password" style="display: block; margin-bottom: 5px; font-weight: 500;">Nueva
+            Contraseña:</label>
+          <input type="password" id="new-password" class="form-control" placeholder="Mínimo 4 caracteres"
+            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label for="confirm-password" style="display: block; margin-bottom: 5px; font-weight: 500;">Confirmar
+            Contraseña:</label>
+          <input type="password" id="confirm-password" class="form-control" placeholder="Repita la contraseña"
+            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+        </div>
+
+        <div id="password-error" style="color: #e74c3c; font-size: 13px; margin-top: 10px; display: none;"></div>
+      </div>
+
+      <div class="setup-footer">
+        <button class="btn btn-primary" onclick="submitPasswordChange()">
+          <i class="fa fa-save"></i> Guardar Nueva Contraseña
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js?v=9"></script>
+  <script src="js/layout.js?v=9"></script>
+  <script src="js/inicio.js?v=9"></script>
+
+</body>
+
+</html>
