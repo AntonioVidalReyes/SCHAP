@@ -57,3 +57,7 @@ backend/compare_antonio.py
 backend/inspect_users_abonos.py
 backend/test_hours_sync.py
 
+# Archivos de usuarios locales
+usuarios.txt
+
+
