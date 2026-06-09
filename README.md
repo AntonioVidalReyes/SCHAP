@@ -1,6 +1,6 @@
-# SCHA - Control de Horas Administrativas (CHO)
+# SCHAP - Control de Horas Administrativas (SCHAP)
 
-Sistema de gestión y control de horas administrativas, abonos de horas extras y solicitudes de permisos para los colaboradores de **SCHA LTDA**. El sistema permite a los trabajadores rendir horas extras por hitos de proyectos, solicitar permisos administrativos, y a las jefaturas y administradores aprobar/rechazar dichas solicitudes bajo una estructura jerárquica con cálculo automatizado de saldos.
+Sistema de gestión y control de horas administrativas, abonos de horas extras y solicitudes de permisos para los colaboradores de **SCHAP LTDA**. El sistema permite a los trabajadores rendir horas extras por hitos de proyectos, solicitar permisos administrativos, y a las jefaturas y administradores aprobar/rechazar dichas solicitudes bajo una estructura jerárquica con cálculo automatizado de saldos.
 
 ---
 
@@ -37,9 +37,9 @@ Para ejecutar la aplicación es necesario tener instalado:
 ## 📦 Despliegue con Docker (Recomendado)
 
 El despliegue con Docker levantará tres contenedores:
-* `scha_postgres_db` (Base de Datos en puerto `5432`)
-* `scha_backend_api` (API Flask en puerto `3000`)
-* `scha_frontend_web` (Cliente Nginx en puerto `8282`)
+* `schap_postgres_db` (Base de Datos en puerto `5432`)
+* `schap_backend_api` (API Flask en puerto `3000`)
+* `schap_frontend_web` (Cliente Nginx en puerto `8282`)
 
 ### Pasos para levantar el servicio:
 
@@ -49,11 +49,11 @@ El despliegue con Docker levantará tres contenedores:
    FLASK_ENV=production
    DB_HOST=db
    DB_PORT=5432
-   DB_NAME=cho_db
+   DB_NAME=schap_db
    DB_USER=postgres
-   DB_PASSWORD=cho_secure_password_2025
-   SECRET_KEY=cho-super-secret-jwt-key-2025
-   COMPANY_NAME=SCHA LTDA.
+   DB_PASSWORD=schap_secure_password_2025
+   SECRET_KEY=schap-super-secret-jwt-key-2025
+   COMPANY_NAME=SCHAP LTDA.
    EMAIL_ENABLED=False
    DEFAULT_ADMIN_EMAIL=admin@sistema.local
    DEFAULT_ADMIN_PASSWORD=admin123

@@ -1,4 +1,4 @@
-# Credenciales de Acceso del Sistema SCHA
+# Credenciales de Acceso del Sistema SCHAP
 
 Este documento contiene las credenciales de las cuentas iniciales y de emergencia del sistema de Control de Horas Administrativas.
 

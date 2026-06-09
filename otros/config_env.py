@@ -19,12 +19,12 @@ class Config:
     DATABASE_PATH = os.getenv("DATABASE_PATH", "database.db")
     
     # ========== SEGURIDAD ==========
-    SECRET_KEY = os.getenv("SECRET_KEY", "cpa-scha-secret-key-2025")
+    SECRET_KEY = os.getenv("SECRET_KEY", "cpa-schap-secret-key-2025")
     JWT_EXPIRATION_HOURS = int(os.getenv("JWT_EXPIRATION_HOURS", 8))
     JWT_EXPIRATION_DELTA = timedelta(hours=JWT_EXPIRATION_HOURS)
     
     # ========== EMPRESA ==========
-    COMPANY_NAME = os.getenv("COMPANY_NAME", "SCHA")
+    COMPANY_NAME = os.getenv("COMPANY_NAME", "SCHAP")
     APP_NAME = os.getenv("APP_NAME", "CPA")
     
     # ========== EMAIL ==========

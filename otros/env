@@ -1,5 +1,5 @@
 # ============================================
-# CONFIGURACIÓN SCHA CPA
+# CONFIGURACIÓN SCHAP CPA
 # ============================================
 
 # ========== ENTORNO ==========
@@ -14,20 +14,20 @@ FLASK_DEBUG=True
 DATABASE_PATH=database.db
 
 # ========== SEGURIDAD ==========
-SECRET_KEY=scha-cpa-secret-key-2025
+SECRET_KEY=schap-cpa-secret-key-2025
 JWT_EXPIRATION_HOURS=8
 
 # ========== EMPRESA ==========
-COMPANY_NAME=SCHA
+COMPANY_NAME=SCHAP
 APP_NAME=CPA
 
 # ========== EMAIL (SMTP) ==========
 EMAIL_ENABLED=False
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
-SMTP_USER=correo@scha.cl
+SMTP_USER=correo@schap.cl
 SMTP_PASSWORD=tu_contraseña_app
-SMTP_FROM=noreply@scha.cl
+SMTP_FROM=noreply@schap.cl
 SMTP_USE_TLS=True
 
 # ========== USUARIO ADMINISTRADOR POR DEFECTO ==========

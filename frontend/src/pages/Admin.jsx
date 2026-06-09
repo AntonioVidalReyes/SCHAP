@@ -154,7 +154,7 @@ export default function Admin({ currentUser }) {
     }
 
     if (!editingUser) {
-      const finalPass = password || 'scha123'
+      const finalPass = password || 'schap123'
       if (finalPass.length < 4) {
         showFeedback('error', 'La contraseña debe tener al menos 4 caracteres.')
         return
@@ -1005,7 +1005,7 @@ export default function Admin({ currentUser }) {
                   <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '6px' }}>Contraseña</label>
                   <input
                     type="password"
-                    placeholder="Dejar vacío para default 'scha123'"
+                    placeholder="Dejar vacío para default 'schap123'"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid var(--input-border)', color: 'var(--text)', background: 'var(--input-bg)', boxSizing: 'border-box' }}

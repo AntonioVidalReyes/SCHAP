@@ -3,11 +3,11 @@ version: '3.8'
 services:
   db:
     image: postgres:15-alpine
-    container_name: scha_postgres_db
+    container_name: schap_postgres_db
     environment:
-      POSTGRES_DB: ${DB_NAME:-cho_db}
+      POSTGRES_DB: ${DB_NAME:-schap_db}
       POSTGRES_USER: ${DB_USER:-postgres}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-cho_secure_password_2025}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-schap_secure_password_2025}
     ports:
       - "5432:5432"
     volumes:
@@ -18,7 +18,7 @@ services:
     build:
       context: .
       dockerfile: ./backend/Dockerfile
-    container_name: scha_backend_api
+    container_name: schap_backend_api
     env_file:
       - .env
     ports:
@@ -31,7 +31,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: scha_frontend_web
+    container_name: schap_frontend_web
     ports:
       - "8282:80"
     depends_on:

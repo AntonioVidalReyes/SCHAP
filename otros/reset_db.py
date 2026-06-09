@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ============================================
-# RESET DATABASE - SCHA CPA
+# RESET DATABASE - SCHAP CPA
 # ============================================
 # Elimina la base de datos existente y crea una nueva
 # con el usuario administrador por defecto
@@ -217,7 +217,7 @@ def main():
     """Función principal"""
     print("")
     print("=" * 50)
-    print("  RESET DATABASE - SCHA CPA")
+    print("  RESET DATABASE - SCHAP CPA")
     print("=" * 50)
     print("")
     

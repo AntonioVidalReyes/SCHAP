@@ -51,7 +51,7 @@ function Layout({ children, currentUser, onLogout }) {
     <div className="app-shell">
       <header className="main-header">
         <div className="header-left">
-          <span className="brand">SCHA</span>
+          <span className="brand">SCHAP</span>
           {currentUser && (
             <span className={`role-badge role-${currentUser.role}`}>
               {currentUser.role}
@@ -139,7 +139,7 @@ function Layout({ children, currentUser, onLogout }) {
 
       <footer>
         <div className="footer-left">
-          <span className="brand">SCHA</span>
+          <span className="brand">SCHAP</span>
           <span className="footer-divider">|</span>
           <span className="footer-brand-text">Control de Horas Administrativas</span>
         </div>
@@ -201,7 +201,7 @@ function App() {
   if (loading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: '#0b0f19', color: '#fff', fontFamily: 'Inter' }}>
-        <div style={{ fontSize: '1.2rem' }}>Cargando SCHA...</div>
+        <div style={{ fontSize: '1.2rem' }}>Cargando SCHAP...</div>
       </div>
     )
   }

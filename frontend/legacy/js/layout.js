@@ -6,7 +6,7 @@ function buildHeader() {
   root.innerHTML = `
     <header class="main-header">
       <div class="header-left">
-        <span class="brand">SCHA</span>
+        <span class="brand">SCHAP</span>
         <span id="role-pill" class="role-badge"></span>
       </div>
 
@@ -107,7 +107,7 @@ function applyRoleUI(user) {
   if (footer) {
     footer.innerHTML = `
       <div class="footer-left">
-        <span class="brand">SCHA</span>
+        <span class="brand">SCHAP</span>
         <span class="footer-divider">|</span>
         <span class="footer-brand-text">Control de Horas Administrativas</span>
       </div>

@@ -10,13 +10,13 @@ const ENV = {
     API_PROTOCOL: "http",
 
     // ========== APLICACIÓN ==========
-    APP_NAME: "SCHA CPA",
+    APP_NAME: "SCHAP CPA",
     APP_VERSION: "1.0.0",
     APP_YEAR: new Date().getFullYear(),
 
     // ========== EMPRESA ==========
-    COMPANY_NAME: "SCHA",
-    COMPANY_EMAIL: "contacto@scha.cl",
+    COMPANY_NAME: "SCHAP",
+    COMPANY_EMAIL: "contacto@schap.cl",
     COMPANY_PHONE: "+56 9 1234 5678",
 
     // ========== SESIÓN ==========

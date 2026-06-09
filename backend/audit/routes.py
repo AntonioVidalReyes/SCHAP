@@ -119,7 +119,7 @@ def import_data(import_type):
                     db.session.rollback()
                     return jsonify({"error": f"Fila {row_num}: El email '{email}' ya está registrado o duplicado en el lote."}), 400
 
-                final_password = password if password else "scha123"
+                final_password = password if password else "schap123"
                 hashed_pwd = hash_password(final_password)
 
                 new_user = User(

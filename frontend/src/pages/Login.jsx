@@ -227,7 +227,7 @@ export default function Login({ onLoginSuccess }) {
       }}>
         <div style={{ textAlign: 'center', marginBottom: '30px' }}>
           <h2 style={{ fontSize: '1.8rem', fontWeight: '800', margin: '0 0 10px 0', letterSpacing: '0.05em', color: 'var(--text)' }}>
-            SCHA
+            SCHAP
           </h2>
           <p style={{ color: 'var(--text-muted)', margin: 0, fontSize: '0.9rem' }}>
             Control de Horas Administrativas
@@ -271,7 +271,7 @@ export default function Login({ onLoginSuccess }) {
               </label>
               <input
                 type="email"
-                placeholder="ejemplo@scha.cl"
+                placeholder="ejemplo@schap.cl"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', boxSizing: 'border-box' }}
@@ -368,7 +368,7 @@ export default function Login({ onLoginSuccess }) {
               </label>
               <input
                 type="email"
-                placeholder="juan.perez@scha.cl"
+                placeholder="juan.perez@schap.cl"
                 value={regEmail}
                 onChange={(e) => setRegEmail(e.target.value)}
                 style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', boxSizing: 'border-box' }}
@@ -428,7 +428,7 @@ export default function Login({ onLoginSuccess }) {
               </label>
               <input
                 type="email"
-                placeholder="ejemplo@scha.cl"
+                placeholder="ejemplo@schap.cl"
                 value={recoveryEmail}
                 onChange={(e) => setRecoveryEmail(e.target.value)}
                 style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', boxSizing: 'border-box' }}

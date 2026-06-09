@@ -1,4 +1,4 @@
-// Centralized API handler for React SCHA SPA
+// Centralized API handler for React SCHAP SPA
 
 // During production (Docker), API requests are proxied via Nginx (/api), 
 // but in development we can fallback to the proxy or backend port.

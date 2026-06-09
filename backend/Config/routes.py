@@ -298,8 +298,8 @@ def test_smtp_config():
     import smtplib
     from email.mime.text import MIMEText
     try:
-        msg = MIMEText("Esta es una prueba de envío de correo electrónico de SCHA.", "plain", "utf-8")
-        msg["Subject"] = "SCHA - Prueba de Envío"
+        msg = MIMEText("Esta es una prueba de envío de correo electrónico de SCHAP.", "plain", "utf-8")
+        msg["Subject"] = "SCHAP - Prueba de Envío"
         msg["From"] = smtp_data.get("from_email") or smtp_data.get("user")
         msg["To"] = test_email_addr
         

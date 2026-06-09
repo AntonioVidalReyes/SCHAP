@@ -1,5 +1,5 @@
 
-# Backend SCHA (esqueleto refactorizado)
+# Backend SCHAP (esqueleto refactorizado)
 
 Estructura principal:
 

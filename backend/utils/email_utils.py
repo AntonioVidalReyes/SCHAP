@@ -1,5 +1,5 @@
 # ============================================
-# EMAIL UTILS - SCHA
+# EMAIL UTILS - SCHAP
 # ============================================
 # Sistema de notificaciones por email personalizado
 # 
